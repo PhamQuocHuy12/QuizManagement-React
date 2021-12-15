@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./style.css";
+import { Routes, Route } from "react-router-dom";
+import AllQuestion from "./frontend/screens/AllQuestion";
+import AddQuestion from "./frontend/screens/AddQuestion";
+import EditQuestion from "./frontend/screens/EditQuestion";
+import SideBar from "./frontend/components/SideBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <main>
+        <SideBar />
+        <Routes>
+          <Route path={"/"} key={"all"} element={<AllQuestion />}></Route>
+          <Route path={"/add"} key={"add"} element={<AddQuestion />}></Route>
+          <Route
+            path={"/edit/:id"}
+            key={"edit"}
+            element={<EditQuestion />}
+          ></Route>
+        </Routes>
+      </main>
     </div>
   );
 }
